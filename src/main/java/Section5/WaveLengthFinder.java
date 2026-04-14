@@ -7,11 +7,15 @@ public class WaveLengthFinder {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-
-            System.out.println("Enter a color code");
-
-            double input = Double.parseDouble(scanner.nextLine());
-            System.out.println(waveLengthFinder(input));
+            System.out.println("Enter a wavelength (or 'exit' to quit):");
+            String line = scanner.nextLine();
+            if (line.equalsIgnoreCase("exit")) break;
+            try {
+                double input = Double.parseDouble(line);
+                System.out.println(waveLengthFinder(input));
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+            }
         }
 
     }
